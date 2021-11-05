@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation</title>
+</head>
+<style>
+    form{
+        position: relative;
+        margin-top:60px;
+    }
+    .dec{
+        height:40px;
+        width:250px;
+        text-align: center;
+    }
+</style>
+<body>
+    <center>
+    <form>
+        <h2>Validation </h2></br></br>
+        <p>Enter Your Email : </p>
+        <input type="email" id="email" class="dec" onkeyup="names()" ><br/><br/><span id="msg" style="color:red"></span></br></br>
+        <input type="submit" value="submit" id='submit' >
+    </form>
+    </center>
+    <script>
+        document.getElementById("submit").style.visibility="hidden";
+        const names=()=>{
+                var store=document.getElementById("email").value;
+                let pattern=/^\w+[a-zA-Z0-9\.-]+@([a-z])+(\.[a-z]{2,3})+$/g
+                let y=pattern.test(store);
+                if(y==true){
+                
+                    document.getElementById('submit').style.visibility = 'visible';
+                    document.getElementById("email").style.backgroundColor="green";
+                    document.getElementById("email").style.color="white";
+                    doument.getElementById("msg").innerHTML='';
+
+                }
+                else if(store==""){
+                    document.getElementById("msg").innerHTML="";  
+                    document.getElementById('submit').style.visibility = 'hidden';
+                     document.getElementById("email").style.backgroundColor="white";
+                }
+                else{
+                    document.getElementById('submit').style.visibility = 'hidden';
+                    
+                    document.getElementById("email").style.backgroundColor="red";
+                    document.getElementById("msg").innerHTML='invalid';
+                }
+        }
+    </script>
+</body>
+</html>
